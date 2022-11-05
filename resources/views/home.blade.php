@@ -17,13 +17,13 @@
                     {{ Auth::user()->name }}{{ __(', You are logged in!') }}
 
                     <div class="row">
-                        <dic class="doctor">
-                            <a href="{{url('/')}}"> <button type="button" class="btn btn-outline-primary">DOCTORS</button></a>
+                        <div class="doctor">
+                            <a href="{{url('/Doctors/doctorlist')}}"> <button type="button" class="btn btn-outline-primary">DOCTORS</button></a>
                         </div>
-                        <dic class="patient">
-                            <a href="{{url('/')}}"> <button type="button" class="btn btn-outline-primary">PATIENT</button></a>
+                        <div class="patient">
+                            <a href="{{url('/Patients/addpatient')}}"> <button type="button" class="btn btn-outline-primary">PATIENT</button></a>
                         </div>
-                        <dic class="patient">
+                        <div class="patient">
                             <a href="{{url('/')}}"> <button type="button" class="btn btn-outline-primary">APPOINTMENT</button></a>
                         </div>
                     </div>

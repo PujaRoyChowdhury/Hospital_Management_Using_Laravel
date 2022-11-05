@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="m-3">
+    <a href="{{url('/Doctors/doctors')}}"> <button type="button" class="btn btn-outline-primary">Add Doctor</button></a>
+</div>
 <table class="table" border="1">
   <thead>
     <tr>

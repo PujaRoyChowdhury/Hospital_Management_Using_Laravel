@@ -11,18 +11,18 @@ class DoctorController extends Controller
     //
     public function getDoctor()
     {
-        return view('doctors');
+        return view('Doctors/doctors');
     }
     public function setDoctor(Request $request)
     {
-            $validation = $request->validate([
-            'first_name' => 'required',
-            'first_name' => 'required',
+            $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
             'email' => 'required|email',
             'phone' => 'required|numeric|digits:10',
             'department' => 'required',
-            'visit_date' => 'required',
-            'visit_time' => 'required',
+            'visitdate' => 'required',
+            'visittime' => 'required',
             'fees' => 'required'
         ]);
 
@@ -39,31 +39,40 @@ class DoctorController extends Controller
 
         $doctor->save();
 
-        return redirect('doctors');
+        return redirect('Doctors/doctors');
     }
 
     public function showDoctor()
     {
         $data = Doctor::all();
-        return view('doctorlist', ['values' => $data]);
+        return view('Doctors/doctorlist', ['values' => $data]);
     }
 
     public function delete($id)
     {
         $data = Doctor::find($id);
         $data->delete();
-        return redirect('doctorlist');
+        return redirect('Doctors/doctorlist');
     }
 
     public function edit(Doctor $doctor , $id)
     {
         $doctor= Doctor::find($id);
-        return view('editdoctor',['value'=>$doctor]);
+        return view('Doctors/editdoctor',['value'=>$doctor]);
     }
     
     public function update(Request $request)
     {
-
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required|numeric|digits:10',
+            'department' => 'required',
+            'visitdate' => 'required',
+            'visittime' => 'required',
+            'fees' => 'required'
+        ]);
         $doctor = Doctor::find($request->id);
         $doctor->first_name = $request->firstname;
         $doctor->last_name = $request->lastname;
@@ -78,6 +87,6 @@ class DoctorController extends Controller
 
         // Session::put('successMessage','Question successfully updated');
 
-        return redirect('doctorlist');
+        return redirect('Doctors/doctorlist');
     }
 }
