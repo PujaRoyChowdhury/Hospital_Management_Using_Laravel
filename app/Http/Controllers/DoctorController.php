@@ -44,7 +44,7 @@ class DoctorController extends Controller
 
     public function showDoctor()
     {
-        $data = Doctor::all();
+        $data = Doctor::paginate(10);
         return view('Doctors/doctorlist', ['values' => $data]);
     }
 

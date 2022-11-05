@@ -39,4 +39,10 @@
     @endforeach
   </tbody>
   <thead>
+  <span>{{$values->links()}}</span>
+    <style>
+      .w-5{
+        display: none;
+      }
+    </style>
 @endsection

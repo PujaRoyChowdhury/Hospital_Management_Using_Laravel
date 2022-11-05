@@ -43,7 +43,7 @@ class PatientController extends Controller
 
     public function showPatient()
     {
-        $data = Patient::all();
+        $data = Patient::paginate(10);
         return view('Patients/showpatient', ['values' => $data]);
     }
 
