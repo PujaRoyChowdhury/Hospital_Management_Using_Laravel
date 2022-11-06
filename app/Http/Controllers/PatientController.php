@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\AppointmentMail;
 use Illuminate\Http\Request;
 use App\Models\Patient;
+use Illuminate\Support\Facades\Mail;
 
 class PatientController extends Controller
 {
@@ -36,7 +38,12 @@ class PatientController extends Controller
         $patient->aadhaar = $request->aadhaar;
         $patient->sex = $request->sex;
 
+
+        // Mail::to($patient['email'])->send(new AppointmentMail($patient));
+
         $patient->save();
+
+        
 
         return redirect('Patients/addpatient');
     }
