@@ -44,3 +44,7 @@ Route::get('editpatient/{id}',[PatientController::class,'edit'])->middleware(['a
 Route::post('update',[PatientController::class,'update'])->middleware(['auth']);
 
 Route::get('/index',[AppointmentController::class,'index'])->middleware(['auth']);
+Route::get('Appointments/addappointment',[AppointmentController::class, 'getAppointment'])->middleware(['auth']);
+Route::post('Appointments/addappointment', [AppointmentController::class, 'setAppointment'])->middleware(['auth']);
+Route::get('Appointments/showappointment',[AppointmentController::class, 'showAppointment'])->middleware(['auth']);
+Route::get('delete/{id}',[AppointmentController::class,'delete'])->middleware(['auth']);
